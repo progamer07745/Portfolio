@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #d3d3d3;
+    position: fixed;
+    z-index: 999;
+    align-items: center;
+    padding: 10px 90px;
+}
+
+header nav a {
+    font-size: 1.5em;
+    padding-left: 0.875em;
+    text-decoration: none;
+    font-weight: 600;
+    color: #14303c;
+    transition: .3s ease;
+}
+
+header nav a:hover {
+    color: #127199;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 10px 150px;
+    background: url(images/mainSection.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.main h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+.main h2 span{
+    display: inline-block; /*because span is an inline element so padding and margin won't work on it.*/
+    margin-top: 10px;
+    font-size: 2.5em;
+    color: #14303c;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.main h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+}
+
+.main-btn {
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
+    background-color: #000000;
+    display: inline-block;
+    padding: 1.875rem;
+    /* padding: 30px; */
+    border-radius: 20px; 
+    transition: .4s ease;
+    margin-bottom: 30px;
+}
+
+.main-btn:hover {
+    color: black;
+    background-color: white;
+    transform: scale(1.1);
+    margin-bottom: 40px;
+}
+
+.social-links  a{
+    display: inline-block;
+    color: black;
+    font-size: 3em;
+    padding-right: 20px;
+    transition: .2s ease-out;
+    max-height: 20px;
+
+
+}
+
+.social-links a:hover {
+    font-size: 4em;
+    max-height: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
