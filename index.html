@@ -1,36 +1,315 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-</head>
-<body>
-    <header>
-        <a href="#" class="logo"><img src="output-onlinepngtools.png" alt="main logo" width="50px"></a>
-        <nav>
-            <a href="#Home">Home</a>
-            <a href="#Services">Services</a>
-            <a href="#Projects">Projects</a>
-            <a href="#Contact">Contact</a>
-        </nav>
-    </header>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
 
-    <section class="main">
-        <div>
-            <h2>Trio Coders <br /><span>Web Developers</span></h2>
-            <h3>We can turn your ideas into a real websites with high quality.</h3>
-            <a href="Projects" class="main-btn">View our projects</a>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-square-linkedin"></i></a>
-            </div>
-        </div>
-    </section>
-</body>
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #d3d3d3;
+    position: fixed;
+    z-index: 999;
+    align-items: center;
+    padding: 10px 90px;
+}
 
-</html>
+header nav a {
+    font-size: 1.5em;
+    padding-left: 0.875em;
+    text-decoration: none;
+    font-weight: 600;
+    color: #14303c;
+    transition: .3s ease;
+}
+
+header nav a:hover {
+    color: #127199;
+}
+
+
+.main div{
+    opacity: 0;
+    transform: translateX(-170%);
+    z-index: 5;
+    animation: slide 2s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+    to{
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 5;
+
+    }
+}
+section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 10px 150px;
+    animation: buttons;
+}
+
+section::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%; 
+    background: url(mainSection.jpg) no-repeat;
+    background-size: cover;
+    z-index: -1; /* علشان تبقى ورا المحتوى */
+    animation: image 2.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: .5s;
+    background-position: -300% center;
+    opacity: 0;
+}
+@keyframes image {
+
+    to {
+        background-position:  100% center;
+        opacity: 1;
+    }
+} 
+
+.main h2 {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+.main h2 span{
+    display: inline-block; /*because span is an inline element so padding and margin won't work on it.*/
+    margin-top: 10px;
+    font-size: 2.5em;
+    color: #14303c;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.main h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+}
+
+.main-btn {
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 700;
+    color: white;
+    background-color: #000000;
+    display: inline-block;
+    padding: 1.875rem;
+    /* padding: 30px; */
+    border-radius: 20px; 
+    transition: .4s ease;
+    margin-bottom: 30px;
+}
+
+.main-btn:hover {
+    color: black;
+    background-color: white;
+    transform: scale(1.1);
+    margin-bottom: 40px;
+}
+.fa-brands.fa-facebook{
+    transition: color .7s ease;
+}
+
+.fa-brands.fa-facebook:hover{
+    color: #1877F2;
+}
+
+.fa-brands.fa-github{
+    transition: color .7s ease;
+}
+
+.fa-brands.fa-github:hover{
+    color: #000000;
+}
+
+.fa-brands.fa-square-youtube{
+    transition: color .7s ease;
+}
+
+.fa-brands.fa-square-youtube:hover{
+    color: #FF0000
+;
+}
+.fa-brands.fa-square-linkedin{
+    transition: color .2s ease;
+}
+
+.fa-brands.fa-square-linkedin:hover{
+    color: #0077B5
+;
+}
+.social-links  a{
+    display: inline-block;
+    color: black;
+    font-size: 3em;
+    padding-right: 20px;
+    transition: .2s ease-out;
+    max-height: 20px;
+}
+
+.social-links a:hover {
+    font-size: 4em;
+    max-height: 20px;
+}
+
+/* فكرة جهنمية :
+اللوجو الأصلي ييجي من اليمين ب أنميشن, 
+والheader لنزل من فوق كدة ب 
+انميشن برضو,
+وهكذا الازرار واللينكات ع الشمال */
+
+
+/* ======================
+   Responsive Design
+   ====================== */
+
+/* الشاشات المتوسطة - تابلت */
+@media (max-width: 1024px) {
+  header {
+    padding: 10px 50px;
+  }
+
+  header nav a {
+    font-size: 1.2em;
+    padding-left: 0.6em;
+  }
+
+  section {
+    padding: 10px 80px;
+  }
+
+  .main h2 {
+    font-size: 1.6em;
+  }
+
+  .main h2 span {
+    font-size: 2em;
+  }
+
+  .main h3 {
+    font-size: 1.2em;
+  }
+
+  .main-btn {
+    font-size: 1.4em;
+    padding: 1.2rem;
+  }
+
+  .social-links a {
+    font-size: 2.5em;
+  }
+}
+
+/* الشاشات الصغيرة - موبايل */
+@media (max-width: 430px) {
+  header {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+.main h2, h3 {
+    font-size: 8px;
+    margin-top: 500px;
+}
+section::before {
+    content: "";
+    background: url(mainSection.jpg) no-repeat;
+    background-size: 1300px;
+    background-position: 110% center !important;
+}
+
+  header nav {
+    margin-top: 10px;
+  }
+
+  header nav a {
+    display: inline-block;
+    font-size: 1.1em;
+    padding: 0.4em 0.6em;
+  }
+
+  section {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .main div {
+    width: 100%;
+    transform: none; /* علشان الأنيميشن ميبقاش باين غلط */
+  }
+
+  .main h2 {
+    font-size: 1.4em;
+  }
+
+  .main h2 span {
+    font-size: 1.8em;
+  }
+
+  .main h3 {
+    font-size: 1.1em;
+  }
+
+  .main-btn {
+    font-size: 1.2em;
+    padding: 1rem;
+  }
+
+  .social-links a {
+    font-size: 2em;
+    padding-right: 10px;
+  }
+}
+
+/* الشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .main h2 {
+    font-size: 1.2em;
+  }
+
+  .main h2 span {
+    font-size: 1.5em;
+  }
+
+  .main-btn {
+    font-size: 1em;
+    padding: 0.8rem;
+  }
+
+  .social-links a {
+    font-size: 1.6em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
